@@ -1,0 +1,28 @@
+.overview-container {
+  width: max(300px, 70vw);
+}
+
+@media (max-width: 623px) {
+  .star-rating {
+    @apply text-xs;
+  }
+}
+
+@media (max-width: 720px) {
+  .movie-rating-details {
+    @apply flex-col;
+  }
+}
+
+@media (max-width: 422px) {
+  .movie-add-links {
+    @apply flex-col gap-2 !important;
+  }
+  .recomendations-heading {
+    @apply text-2xl !important;
+  }
+
+  .movie-img {
+    @apply w-[270px] !important;
+  }
+}

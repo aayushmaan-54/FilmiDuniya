@@ -1,0 +1,38 @@
+@media (max-width: 766px) {
+  .featured-img {
+    @apply h-[300px] !important;
+  }
+
+  .featured-img-content {
+    @apply w-[90%] mx-2 !important;
+  }
+}
+
+@media (max-width: 494px) {
+  .featured-img {
+    @apply h-[250px] !important;
+  }
+
+  .featured-img-content {
+    @apply w-[100%] !important;
+  }
+
+  .featuredMovie-overview {
+    @apply mb-1 h-[40%] text-xs !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .img-black-alpha {
+    @apply px-1 !important;
+  }
+}
+
+@media (max-width: 392px) {
+  .featured-img {
+    @apply h-[200px] !important;
+  }
+}

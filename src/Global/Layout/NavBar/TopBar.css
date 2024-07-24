@@ -1,0 +1,35 @@
+@media (max-width: 582px) {
+  .heading-logo {
+    @apply hidden;
+  }
+
+  .search-input input {
+    @apply w-[100%];
+  }
+
+  .right-nav {
+    @apply space-x-1 !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .profile {
+    @apply size-8 !important;
+  }
+
+  .search-input input {
+    @apply w-[57vw];
+  }
+}
+
+@media (max-width: 362px) {
+  .search-input input {
+    @apply w-[52.5vw];
+  }
+}
+
+@media (max-width: 320px) {
+  .search-input input {
+    @apply w-[50vw];
+  }
+}

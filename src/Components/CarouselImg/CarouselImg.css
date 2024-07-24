@@ -1,0 +1,17 @@
+@media (max-width: 702px) {
+  .carousel-img {
+    @apply size-32 !important;
+  }
+
+  .carousel-container {
+    @apply -mx-4 !important;
+  }
+
+  .arrow-btn {
+    @apply top-[64px] !important;
+  }
+
+  .cast-details {
+    @apply text-xs !important;
+  }
+}

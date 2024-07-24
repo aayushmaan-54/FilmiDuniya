@@ -1,0 +1,11 @@
+@media (max-width: 623px) {
+  .star-rating {
+    @apply size-5;
+  }
+}
+
+@media (max-width: 490px) {
+  .star-rating {
+    @apply size-4;
+  }
+}

@@ -1,0 +1,17 @@
+.sidebar-container::-webkit-scrollbar-track {
+  @apply rounded-lg dark:bg-complementDark;
+}
+
+.sidebar-container::-webkit-scrollbar {
+  @apply w-1;
+}
+
+.sidebar-container::-webkit-scrollbar-thumb {
+  @apply rounded dark:bg-contrastDark;
+}
+
+@media (max-width: 430px) {
+  .sidebar-container {
+    @apply w-60;
+  }
+}

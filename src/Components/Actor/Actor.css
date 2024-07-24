@@ -1,0 +1,9 @@
+.actor-detail-container {
+  width: max(300px, 75vw);
+}
+
+@media (max-width: 388px) {
+  .actor-movie {
+    width: 300px !important;
+  }
+}
