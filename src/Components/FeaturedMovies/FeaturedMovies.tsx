@@ -8,7 +8,7 @@ interface FeaturedMoviesProps {
 
 const FeaturedMovies = ({ movie }: FeaturedMoviesProps) => {
   return (
-    <Link to={`/movie/${movie.id}`} className="block relative overflow-hidden rounded-lg shadow-lg pb-4 w-full overflow-x-hidden px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-24 featured-movie-container">
+    <Link to={`/movie/${movie.id}`} className="block relative overflow-hidden rounded-lg pb-4 w-full overflow-x-hidden px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-24 featured-movie-container">
       <div className="relative rounded-lg group overflow-hidden">
         <img
           src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}

@@ -1,5 +1,6 @@
 import {
   Link,
+  useLocation,
   useNavigate,
   useParams
 } from "react-router-dom";
@@ -28,6 +29,7 @@ import {
 import castPlaceholder from "../../assets/images/placeholderPeople.webp"
 
 import moviePlaceholder from "../../assets/images/moviePlaceholder.webp"
+import { useEffect } from "react";
 
 
 const Actor = () => {
@@ -37,7 +39,14 @@ const Actor = () => {
   const navigate = useNavigate();
   const { data: ActorMovieData, error: ActorMovieError, isFetching: ActorMovieIsFetching } = useGetMoviesByActorIdQuery({ actorID });
 
+  const location = useLocation();
+
   const actorDetails: ActorDetailsData = data;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
 
   if (!actorDetails) return <Loading />;
   if (isFetching) return <Loading />;
@@ -54,7 +63,7 @@ const Actor = () => {
             : castPlaceholder
           }
           alt={actorDetails?.name}
-          className="w-[350px] rounded-3xl shadow-2xl pb-3 actor-movie"
+          className="w-[350px] rounded-3xl pb-3 actor-movie"
         />
       </div>
 

@@ -86,7 +86,7 @@ const Home = () => {
         <button
           onClick={handlePreviousPage}
           disabled={page === 1}
-          className="px-4 py-2 bg-contrastLight text-white rounded dark:bg-contrastDark disabled:bg-[#5a56f0] dark:disabled:bg-[#660718] disabled:text-gray-400 disabled:cursor-not-allowed"
+          className="px-4 py-2 bg-contrastLight text-white rounded dark:bg-contrastDark disabled:bg-[#2b2975] dark:disabled:bg-[#660718] disabled:text-gray-400 disabled:cursor-not-allowed"
         >
           <Previous />
         </button>
@@ -94,7 +94,7 @@ const Home = () => {
         <button
           onClick={handleNextPage}
           disabled={!data || page === data.total_pages}
-          className="px-4 py-2 bg-contrastLight text-white rounded dark:bg-contrastDark disabled:bg-[#5a56f0] dark:disabled:bg-[#660718] disabled:text-gray-400 disabled:cursor-not-allowed"
+          className="px-4 py-2 bg-contrastLight text-white rounded dark:bg-contrastDark disabled:bg-[#2b2975] dark:disabled:bg-[#660718] disabled:text-gray-400 disabled:cursor-not-allowed"
         >
           <Next />
         </button>

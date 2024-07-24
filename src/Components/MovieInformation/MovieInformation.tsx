@@ -1,5 +1,6 @@
 import {
   Link,
+  useLocation,
   useNavigate,
   useParams
 } from "react-router-dom";
@@ -74,6 +75,7 @@ const MovieInformation = () => {
   const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const AuthUserId = useSelector((state: RootState) => state.user.user);
   const isAuth = useSelector((state: RootState) => state.user.isAuthenticated);
@@ -185,6 +187,13 @@ const MovieInformation = () => {
   const closeTrailer = () => {
     setIsModalOpen(false);
   };
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+
 
   if (isFetching) return <Loading />;
   if (error) return <Error />;

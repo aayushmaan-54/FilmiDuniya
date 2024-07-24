@@ -11,7 +11,7 @@ export default {
         darkBg: '#080421',
         lightBg: '#ffffff',
         contrastDark: '#e00f34',
-        contrastLight: '#5a56f0',
+        contrastLight: '#2b2975',
         primaryDark: '#12102b',
         primaryLight: '#a9a6b0',
         secondaryDark: '#26233d',
