@@ -11,7 +11,7 @@ const MovieTrailerModal = ({ isOpen, onClose, videoId }: MovieTrailerModalType) 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 backdrop-blur-md">
       <div className="w-full max-w-3xl relative">
         <button
           onClick={onClose}

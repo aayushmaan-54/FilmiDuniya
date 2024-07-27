@@ -60,11 +60,11 @@ const SideBar = ({ isOpen, toggleSidebar, setIsSidebarOpen }: SideBarProps) => {
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black bg-opacity-70 z-40 backdrop-blur-md"
           onClick={toggleSidebar}
         ></div>
       )}
-      <nav className={`dark:bg-secondaryDark bg-contrastLight sidebar-container w-72 fixed h-screen transition-transform duration-300 ease-in-out z-50 ${isOpen ? 'translate-x-0' : '-translate-x-full'} overflow-y-auto sidebar-container`}>
+      <nav className={`dark:bg-secondaryDark bg-contrastLight sidebar-container w-72 fixed h-screen transition-transform duration-300 ease-in-out z-50 ${isOpen ? 'translate-x-0' : '-translate-x-full'} overflow-y-auto sidebar-container z-[100]`}>
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center">
             <img src="/favicon.webp" alt="Filmi Duniya icon" className="size-14" />

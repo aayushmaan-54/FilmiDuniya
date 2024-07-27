@@ -80,8 +80,8 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center pb-7">
-      <FeaturedMovies movie={data.results[0]} />
-      {data && <MovieList movies={data.results} excludeFirst={true} numberOfMovies={visibleMovies} />}
+      <FeaturedMovies movie={data?.results[0]} />
+      {data && <MovieList movies={data?.results} excludeFirst={true} numberOfMovies={visibleMovies} />}
       <div className="flex justify-center mt-4 space-x-4">
         <button
           onClick={handlePreviousPage}
@@ -93,7 +93,7 @@ const Home = () => {
         <span className="self-center">Page {page} of {data?.total_pages || 1}</span>
         <button
           onClick={handleNextPage}
-          disabled={!data || page === data.total_pages}
+          disabled={!data || page === data?.total_pages}
           className="px-4 py-2 bg-contrastLight text-white rounded dark:bg-contrastDark disabled:bg-[#2b2975] dark:disabled:bg-[#660718] disabled:text-gray-400 disabled:cursor-not-allowed"
         >
           <Next />

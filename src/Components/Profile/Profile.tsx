@@ -74,28 +74,28 @@ const Profile = () => {
 
   const MovieCard = ({ movie }: { movie: Movie }) => (
     <div className="flex flex-col h-full pb-6">
-      <Link to={`/movie/${movie.id}`} className="group flex-grow">
+      <Link to={`/movie/${movie?.id}`} className="group flex-grow">
         <div className="aspect-w-2 aspect-h-3 mb-2">
           <LazyImg
-            src={movie.poster_path
-              ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+            src={movie?.poster_path
+              ? `https://image.tmdb.org/t/p/w200/${movie?.poster_path}`
               : moviePlaceholder}
-            alt={movie.title}
+            alt={movie?.title}
             className="object-cover w-full h-[300px] rounded-lg transition-transform duration-300 ease-in-out group-hover:scale-105 card-movies"
           />
         </div>
         <h2 className="text-sm font-semibold mt-1 mb-1 text-center">
           <span className="relative inline-block max-w-full">
             <span className="block dark:group-hover:text-contrastDark group-hover:text-contrastLight whitespace-nowrap overflow-hidden overflow-ellipsis text-center mx-auto">
-              {movie.title}
+              {movie?.title}
             </span>
             <span className="absolute bottom-0 left-0 w-full h-0.5 dark:bg-contrastDark bg-contrastLight transform scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100 origin-left"></span>
           </span>
         </h2>
       </Link>
       <div className="mt-auto flex items-center justify-center gap-1">
-        <StarRating rating={movie.vote_average} />
-        <h3 className="text-xs mt-1 rating">({(movie.vote_average / 2).toFixed(1)})</h3>
+        <StarRating rating={movie?.vote_average} />
+        <h3 className="text-xs mt-1 rating">({(movie?.vote_average / 2).toFixed(1)})</h3>
       </div>
     </div>
   );
@@ -121,10 +121,10 @@ const Profile = () => {
       <div className="mt-20">
         <img
           src={
-            user?.avatar.tmdb.avatar_path
-              ? `https://image.tmdb.org/t/p/${user.avatar.tmdb.avatar_path}`
+            user?.avatar?.tmdb?.avatar_path
+              ? `https://image.tmdb.org/t/p/${user?.avatar?.tmdb?.avatar_path}`
               : user?.avatar.gravatar.hash
-                ? `https://www.gravatar.com/avatar/${user.avatar.gravatar.hash}`
+                ? `https://www.gravatar.com/avatar/${user?.avatar?.gravatar?.hash}`
                 : `${defaultProfile}`
           }
           alt={`${user?.username} profile`}
@@ -143,7 +143,7 @@ const Profile = () => {
         </div>
         <div className="flex items-center justify-evenly gap-1">
           <h2>Locale:</h2>
-          <p>{user?.iso_3166_1 && user?.iso_639_1 ? `${user.iso_3166_1}-${user.iso_639_1}` : 'Empty'}</p>
+          <p>{user?.iso_3166_1 && user?.iso_639_1 ? `${user?.iso_3166_1}-${user?.iso_639_1}` : 'Empty'}</p>
         </div>
         <div className="flex items-center justify-evenly gap-1">
           <h2>ID:</h2>
@@ -157,7 +157,7 @@ const Profile = () => {
           {hasFavorites ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {favoriteMovieData.results.slice(0, visibleFavoriteMovies).map((movie: Movie) => (
-                <MovieCard key={movie.id} movie={movie} />
+                <MovieCard key={movie?.id} movie={movie} />
               ))}
               {hiddenFavoriteMovies > 0 && (
                 <button
@@ -177,8 +177,8 @@ const Profile = () => {
           <h2 className="text-3xl font-semibold mb-4 text-left dark:text-contrastDark text-contrastLight">Watchlist: </h2>
           {hasWatchlist ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {watchlistMovieData.results.slice(0, visibleWishlistMovies).map((movie: Movie) => (
-                <MovieCard key={movie.id} movie={movie} />
+              {watchlistMovieData?.results.slice(0, visibleWishlistMovies).map((movie: Movie) => (
+                <MovieCard key={movie?.id} movie={movie} />
               ))}
               {hiddenWatchlistMovies > 0 && (
                 <button

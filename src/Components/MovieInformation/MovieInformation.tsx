@@ -215,23 +215,23 @@ const MovieInformation = () => {
       </div>
 
       <div className="text-center">
-        <h1 className="text-3xl text-center pb-2 px-3">{MovieByID.title} ({MovieByID.release_date.split('-')[0]})</h1>
-        <p className="px-6">{MovieByID.tagline}</p>
+        <h1 className="text-3xl text-center pb-2 px-3">{MovieByID?.title} ({MovieByID?.release_date.split('-')[0]})</h1>
+        <p className="px-6">{MovieByID?.tagline}</p>
         <span className="flex flex-wrap items-center justify-evenly pb-8 px-6 movie-rating-details">
           <div className="flex items-center justify-center gap-1 pt-7 star-rating text-nowrap">
-            <StarRating rating={MovieByID.vote_average} />
-            ({MovieByID.vote_average} / 10)
+            <StarRating rating={MovieByID?.vote_average} />
+            ({MovieByID?.vote_average} / 10)
           </div>
-          <p className="pt-7">{MovieByID.runtime} min / ({MovieByID.origin_country.join(', ')} , {MovieByID.spoken_languages[0].name})</p>
+          <p className="pt-7">{MovieByID?.runtime} min / ({MovieByID?.origin_country.join(', ')} , {MovieByID.spoken_languages[0]?.name})</p>
         </span>
         <div className="flex items-center justify-center flex-wrap">
-          {MovieByID.genres.map((genre) => {
-            const Icon = GenresIcons[genre.name];
+          {MovieByID?.genres.map((genre) => {
+            const Icon = GenresIcons[genre?.name];
             return (
-              <div key={genre.id} className="flex flex-wrap px-10 items-center cursor-pointer group pb-4" onClick={() => dispatch(selectGenreOrCategory(genre.id))}>
+              <div key={genre?.id} className="flex flex-wrap px-10 items-center cursor-pointer group pb-4" onClick={() => dispatch(selectGenreOrCategory(genre?.id))}>
                 <Link to={'/'} className="flex items-center justify-center gap-1">
                   {Icon && <Icon className="size-7 group-hover:dark:stroke-contrastDark group-hover:stroke-contrastLight" />}
-                  <span className="text-lg font-semibold group-hover:dark:text-contrastDark group-hover:text-contrastLight">{genre.name}</span>
+                  <span className="text-lg font-semibold group-hover:dark:text-contrastDark group-hover:text-contrastLight">{genre?.name}</span>
                 </Link>
               </div>
             );
@@ -239,18 +239,18 @@ const MovieInformation = () => {
         </div>
         <div className="overview pt-7 flex flex-col justify-center mx-auto overview-container">
           <h1 className="text-3xl text-left font-semibold">Overview</h1>
-          <p className="text-left">{MovieByID.overview}</p>
+          <p className="text-left">{MovieByID?.overview}</p>
         </div>
         <div>
           <h2 className="text-3xl font-bold mt-8 mb-4">Cast</h2>
-          {MovieByID && MovieByID.credits && MovieByID.credits.cast && (
-            <CarouselImg cast={MovieByID.credits.cast} />
+          {MovieByID && MovieByID?.credits && MovieByID?.credits?.cast && (
+            <CarouselImg cast={MovieByID?.credits?.cast} />
           )}
         </div>
         <div>
           <div className="flex items-center justify-center gap-14 mt-12">
-            <a href={`${MovieByID.homepage}`} target="_blank" className="flex items-center justify-center gap-1 group dark:hover:text-contrastDark hover:text-contrastLight"><Globe className="mb-1 dark:group-hover:stroke-contrastDark hover:stroke-contrastLight" />Website</a>
-            <a href={`https://www.imdb.com/title/${MovieByID.imdb_id}`} target="_blank" className="flex items-center justify-center gap-1 group dark:hover:text-contrastDark hover:text-contrastLight"><MovieFilmStrip className="mb-1 dark:group-hover:stroke-contrastDark hover:stroke-contrastLight" />IMDB</a>
+            <a href={`${MovieByID?.homepage}`} target="_blank" className="flex items-center justify-center gap-1 group dark:hover:text-contrastDark hover:text-contrastLight"><Globe className="mb-1 dark:group-hover:stroke-contrastDark hover:stroke-contrastLight" />Website</a>
+            <a href={`https://www.imdb.com/title/${MovieByID?.imdb_id}`} target="_blank" className="flex items-center justify-center gap-1 group dark:hover:text-contrastDark hover:text-contrastLight"><MovieFilmStrip className="mb-1 dark:group-hover:stroke-contrastDark hover:stroke-contrastLight" />IMDB</a>
           </div>
           <div className="pl-7">
             <h2 className="text-3xl font-bold flex items-center justify-start gap-3 pt-10 pb-3"><YouTube className="size-8" />Trailers</h2>
@@ -258,11 +258,11 @@ const MovieInformation = () => {
               <div className="flex flex-wrap gap-2">
                 {availableTrailers.map((trailer: MovieTrailerType) => (
                   <button
-                    key={trailer.id}
-                    onClick={() => openTrailer(trailer.key)}
+                    key={trailer?.id}
+                    onClick={() => openTrailer(trailer?.key)}
                     className="dark:bg-contrastDark bg-contrastLight dark:hover:bg-[#a00a0a] font-bold py-2 px-4 rounded text-white hover:bg-[#4a46c0]"
                   >
-                    {trailer.name}
+                    {trailer?.name}
                   </button>
                 ))}
               </div>
@@ -313,33 +313,33 @@ const MovieInformation = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 pb-6">
             {isRecommendationsFetching ? (
               <Loading />
-            ) : movierecommendations.total_results === 0 ? (
+            ) : movierecommendations?.total_results === 0 ? (
               <p className="text-lg w-screen font-bold">No recommendations available</p>
             ) : (
-              movierecommendations.results.map((movie) => (
-                <div key={movie.id} className="flex flex-col items-center w-full pb-5 px-5">
-                  <Link to={`/movie/${movie.id}`} className="w-full group">
+              movierecommendations?.results.map((movie) => (
+                <div key={movie?.id} className="flex flex-col items-center w-full pb-5 px-5">
+                  <Link to={`/movie/${movie?.id}`} className="w-full group">
                     <div className="aspect-w-2 aspect-h-3 w-full overflow-hidden rounded-lg">
                       <LazyImg
-                        src={movie.poster_path
-                          ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                        src={movie?.poster_path
+                          ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}`
                           : moviePlaceholder}
-                        alt={movie.title}
+                        alt={movie?.title}
                         className="object-cover w-full h-full transition-transform duration-300 ease-in-out group-hover:scale-110"
                       />
                     </div>
                     <h2 className="mt-1 text-xs sm:text-sm font-medium text-center px-1">
                       <span className="relative inline-block max-w-full">
                         <span className="truncate block dark:group-hover:text-contrastDark group-hover:text-contrastLight">
-                          {movie.title}
+                          {movie?.title}
                         </span>
                         <span className="absolute bottom-0 left-0 w-full h-0.5 dark:bg-contrastDark bg-contrastLight transform scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100 origin-left"></span>
                       </span>
                     </h2>
                   </Link>
                   <span className="flex items-center justify-center">
-                    <StarRating rating={movie.vote_average} />
-                    <h3 className="text-s mt-1 star-rating">({(movie.vote_average / 2).toFixed(1)})</h3>
+                    <StarRating rating={movie?.vote_average} />
+                    <h3 className="text-s mt-1 star-rating">({(movie?.vote_average / 2).toFixed(1)})</h3>
                   </span>
                 </div>
               ))

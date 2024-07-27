@@ -70,18 +70,18 @@ const Carousel = ({ cast }: CarouselProps) => {
 
   const renderCastMembers = () => {
     return [...cast, ...cast.slice(0, itemsPerView)].map((actor, index) => (
-      <Link to={`/Actor/${actor.id}`} key={index} className="flex-shrink-0 w-[200px] flex flex-col items-center mx-6 carousel-container">
+      <Link to={`/Actor/${actor?.id}`} key={index} className="flex-shrink-0 w-[200px] flex flex-col items-center mx-6 carousel-container">
         <div className="relative size-[200px] carousel-img">
           <img
-            src={actor.profile_path ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}` : placeholderCast}
-            alt={actor.name}
+            src={actor?.profile_path ? `https://image.tmdb.org/t/p/w200/${actor?.profile_path}` : placeholderCast}
+            alt={actor?.name}
             className=" size-full object-cover rounded-full"
             loading='lazy'
           />
         </div>
         <div className="mt-2 text-center">
-          <p className="font-semibold cast-details">{actor.name}</p>
-          <p className="text-sm text-gray-600 cast-details overflow-y-hidden">{actor.character}</p>
+          <p className="font-semibold cast-details">{actor?.name}</p>
+          <p className="text-sm text-gray-600 cast-details overflow-y-hidden">{actor?.character}</p>
         </div>
       </Link>
     ));
